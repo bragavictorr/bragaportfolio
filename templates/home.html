@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Victor Braga | Desenvolvedor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <!-- Navegação Fixa -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">Braga<span>.dev</span></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato" class="nav-btn">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Cabeçalho -->
+    <header id="inicio" class="fade-in">
+        <h1>João Victor <span>Braga</span></h1>
+        <p>Desenvolvedor focado em Python, integrações inteligentes e na criação de soluções eficientes e escaláveis.</p>
+        <a href="#contato" class="btn-primary">Contratar meus serviços</a>
+    </header>
+
+    <!-- Sobre Mim -->
+    <section id="sobre" class="container animar-scroll">
+        <h2>Sobre Mim</h2>
+        <div class="sobre-content">
+            <p>Sou apaixonado por transformar lógica complexa em sistemas eficientes. O meu foco principal está no desenvolvimento de software e automações usando <strong>Python</strong>, construindo bases sólidas para aplicações web.</p>
+            <p>Além do código, tenho um forte olhar para o design e audiovisual, utilizando ferramentas como <strong>CapCut e Lightroom</strong>. Isso permite-me ter uma visão completa dos projetos, unindo um back-end robusto com uma apresentação visual impecável.</p>
+        </div>
+    </section>
+
+    <!-- Formação e Cursos -->
+    <section id="educacao" class="container animar-scroll">
+        <h2>Onde Estudei</h2>
+        <div class="timeline">
+            <!-- Item 1 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Desenvolvimento em Python</h3>
+                    <span>SENAC RJ | A partir de Junho 2026</span>
+                    <p>Formação focada em lógica de programação, estruturação de dados e desenvolvimento de aplicações sólidas em Python.</p>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Inteligência Artificial & Produtividade</h3>
+                    <span>Cursos Especializados</span>
+                    <p>Conclusão dos cursos "Inteligência Artificial Sem Mistério" e "Excel com IA", focados em otimizar processos e alavancar a produtividade usando tecnologias emergentes.</p>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Vendas & Marketing Digital</h3>
+                    <span>NIV & Jornada de Anúncios</span>
+                    <p>Capacitação em inteligência de vendas e estruturação de anúncios, agregando visão de negócio aos projetos tecnológicos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos -->
+    <main id="projetos" class="container animar-scroll">
+        <h2>Meus Projetos</h2>
+        <div class="projetos-grid">
+            {% for projeto in projetos %}
+                <div class="card animar-scroll-card">
+                    {% if projeto.imagem %}
+                        <img src="{{ projeto.imagem.url }}" alt="Imagem do projeto {{ projeto.titulo }}">
+                    {% endif %}
+                    <div class="card-content">
+                        <h3>{{ projeto.titulo }}</h3>
+                        <p>{{ projeto.descricao }}</p>
+                        <span class="tech-tag">{{ projeto.tecnologias }}</span>
+                        <div class="card-links">
+                            {% if projeto.link_github %}
+                                <a href="{{ projeto.link_github }}" target="_blank">Código</a>
+                            {% endif %}
+                            {% if projeto.link_deploy %}
+                                <a href="{{ projeto.link_deploy }}" target="_blank">Acessar Projeto ↗</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p style="text-align: center; grid-column: 1 / -1;">Nenhum projeto cadastrado no momento.</p>
+            {% endfor %}
+        </div>
+    </main>
+
+    <!-- Contato / Call to Action -->
+    <section id="contato" class="container animar-scroll">
+        <div class="contato-box">
+            <h2>Vamos construir algo juntos?</h2>
+            <p>Estou disponível para novos projetos, integrações de sistemas ou para integrar a sua equipe de desenvolvimento. Entre em contato para discutirmos a sua ideia.</p>
+            
+            <div class="contato-botoes">
+                <a href="mailto:joaovictormarcielcarlos@gmail.com" class="btn-primary">Enviar E-mail</a>
+                <a href="https://wa.me/5522992274954" target="_blank" class="btn-secondary">Chamar no WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 João Victor Braga. Desenvolvido com Django.</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

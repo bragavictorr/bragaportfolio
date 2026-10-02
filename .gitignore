@@ -1,0 +1,14 @@
+# Ambientes Virtuais do Python
+venv/
+env/
+
+# Base de dados local
+db.sqlite3
+*.sqlite3
+
+# Ficheiros temporários do Python
+__pycache__/
+*.pyc
+
+# Ficheiros de media (imagens de teste do painel admin)
+media/
